@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %} update_MCA_REG {% endblock title %}
+{% block body %}
+
+<div>
+    {% for student in reg_details %}
+    <form action="/update-MCAReg/{{student.stu_roll}}" method="POST">
+        <div class="container my-3">
+            <h2
+                style=" color:blue;text-align:center; background-color: rgb(200, 195, 192);margin-right:5px; margin-left:5px; padding-bottom: 10px">
+                Master of Computer Application </h2>
+            <h3 style="color: crimson;text-align:center"> Update Exam Registration Form</h3>
+            <form action="/MCA-DEPT" method="POST">
+                <div class="mb-3">
+                    <label for="stu_roll" class="form-label">Student Roll No</label>
+                    <input type="text" class="form-control" id="stu_roll" value="{{student.stu_roll}}" name="stu_roll">
+
+                </div>
+                <div class="mb-3">
+                    <label for="stu_name" class="form-label">Student Name</label>
+                    <input type="text" class="form-control" id="stu_name" value="{{student.stu_name}}" name="stu_name">
+                </div>
+                <div class="mb-3">
+                    <select class="form-select" name="semester" aria-label="Default select example">
+                        <option selected>{{student.semester}}</option>
+                        <option value="1">semester 1</option>
+                        <option value="2"> semester 2</option>
+                        <option value="3"> semester 3</option>
+                        <option value="4"> semester 4</option>
+                        <option value="5"> semester 5</option>
+                        <option value="6"> semester 6</option>
+                        <option value="7"> semester 7</option>
+                        <option value="8"> semester 8</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select class="form-select" name="gender" aria-label="Default select example">
+                        <option selected>{{student.gender}}</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="dob" class="form-label">Student DOB</label>
+                    <input type="date" class="form-control" id="dob" value="{{student.dob}}" name="dob">
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Student phone</label>
+                    <input type="text" class="form-control" id="phone" value="{{student.phone}}" name="phone">
+                </div>
+                <div class="mb-3">
+                    <label for="stu_email" class="form-label">Student email</label>
+                    <input type="text" class="form-control" id="stu_email" value="{{student.stu_email}}"
+                        name="stu_email">
+                </div>
+                <div class="mb-3">
+                    <label for="stu_addrs" class="form-label">Student address</label>
+                    <input type="text" class="form-control" id="stu_addrs" value="{{student.stu_addrs}}"
+                        name="stu_addrs">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        {% endblock body %}

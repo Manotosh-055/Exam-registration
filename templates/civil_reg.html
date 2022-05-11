@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block title %} CIVIL_REG {% endblock title %}
+{% block body %}
+
+<div class="container my-3">
+<h2 style=" color:blue;text-align:center; background-color: rgb(200, 195, 192);margin-right:5px; margin-left:5px; padding-bottom: 10px">Civil Engineering </h2>
+<h3 style="color: crimson;text-align:center"> Exam Registration Form</h3>
+<form action="/CIVIL-DEPT" method="POST">
+    <div class="mx-5">
+        <label for="stu_roll" class="form-label">Student Roll No</label>
+        <input type="text" class="form-control" id="stu_roll" name="stu_roll">
+
+    </div>
+    <div class="mx-5">
+        <label for="stu_name" class="form-label">Student Name</label>
+        <input type="text" class="form-control" id="stu_name" name="stu_name">
+    </div>
+    <!-- <div class="mb-3">
+        <label for="sem" class="form-label">Semester</label>
+        <input type="text" class="form-control" id="sem" name="semester">
+    </div> -->
+    <div class="mx-5 mb-3 mt-3">
+        <select class="form-select" name="semester" aria-label="Default select example">
+            <option selected>Semester</option>
+            <option  value="1">semester 1</option>
+            <option  value="2"> semester 2</option>
+            <option  value="3"> semester 3</option>
+            <option  value="4"> semester 4</option>
+            <option  value="5"> semester 5</option>
+            <option  value="6"> semester 6</option>
+            <option  value="7"> semester 7</option>
+            <option  value="8"> semester 8</option>
+        </select>
+    </div>
+    <div class="mx-5">
+        <select class="form-select" name="gender" aria-label="Default select example">
+            <option selected>Gender</option>
+            <option  value="M">Male</option>
+            <option  value="F">Female</option>
+        </select>
+    </div>
+    <div class="mx-5">
+        <label for="dob" class="form-label">Student DOB</label>
+        <input type="date" class="form-control" id="dob" name="dob">
+    </div>
+    <div class="mx-5">
+        <label for="phone" class="form-label">Student phone</label>
+        <input type="text" class="form-control" id="phone" name="phone">
+    </div>
+    <div class="mx-5">
+        <label for="stu_email" class="form-label">Student email</label>
+        <input type="text" class="form-control" id="stu_email" name="stu_email">
+    </div>
+    <div class="mx-5">
+        <label for="stu_addrs" class="form-label">Student address</label>
+        <input type="text" class="form-control" id="stu_addrs" name="stu_addrs">
+    </div>
+    
+    <button type="submit" class="btn btn-primary" style="margin-left: 50px; margin-top: 10px;;">Submit</button>
+</form>
+</div>
+<div class="container my-3">
+    <h3 style="text-align: center; color: peru">Registered Students Table</h3>
+    <br>
+    {% if allReg==0 %}
+    <h5 style="text-align:center">No Records Found</h5>
+    {% else %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">SNo</th>
+            <th scope="col">roll_no</th>
+            <th scope="col">name</th>
+            <th scope="col">sem</th>
+            <th scope="col">gender</th>
+            <th scope="col">dob</th>
+            <th scope="col">phone</th>
+            <th scope="col">email</th>
+            <th scope="col">address</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for student in allReg %}
+                
+        <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{student.stu_roll}}</td>
+            <td>{{student.stu_name}}</td>
+            <td>{{student.semester}}</td>
+            <td>{{student.gender}}</td>
+            <td>{{student.dob}}</td>
+            <td>{{student.phone}}</td>
+            <td>{{student.stu_email}}</td>
+            <td>{{student.stu_addrs}}</td>
+            <td>
+                <a href="/update-CIVILReg/{{student.stu_roll}}" type="button" class="btn btn-warning btn-sm mx-1">Update</a>
+                <a href="/delete-CIVILReg/{{student.stu_roll}}" type="button"
+                    class="btn btn-danger btn-sm mx-1">Delete</a>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+
+
+{% endblock body %}

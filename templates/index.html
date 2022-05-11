@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} home {% endblock title %}
+{% block body %}
+
+<div style="text-align:center;">
+    <img src="static\logo.png" style="width: 20%; height: 270px;"/>
+    </div>
+
+<div class="container my-3">
+    
+    
+    <h1 style="color:yellow;background-color: black; padding-bottom : 7px;margin-left: 18%; margin-right: 18%">National
+        institute of Technology Tiruchirapalli </h1>
+    <hr style="border:10px solid green; margin-left: 7%; margin-right: 7%">
+    <br>
+    <h2 style="color:rebeccapurple; text-align: center">Exam Registration 2022</h2>
+    <br>
+    <h5 style="text-align:center; color: red;"><u>Departments</u></h5>
+    <br>
+    <div class="row row-cols-5">
+        <a href="/ME-DEPT" type="button" class="btn btn-outline-success btn-sm mb-3 mx-5"><b>ME</b></a>
+        <a href="/EE-DEPT" type="button" class="btn btn-outline-primary btn-sm mb-3 mx-4"><b>EE</b></a>
+        <a href="/CSE-DEPT" type="button" class="btn btn-outline-success btn-sm mb-3 mx-4"><b>CSE</b></a>
+        <a href="/CIVIL-DEPT" type="button" class="btn btn-outline-primary btn-sm mb-3 mx-4"><b>CIVIL</b></a>
+    </div>
+    <div class="row row-cols-5">
+        <a href="/MTECH-DEPT" type="button" class="btn btn-outline-success btn-sm mb-3 mx-5"><b>MTECH</b></a>
+        <a href="/MCA-DEPT" type="button" class="btn btn-outline-primary btn-sm mb-3 mx-4"><b>MCA</b></a>
+        <a href="/ECE-DEPT" type="button" class="btn btn-outline-success btn-sm mb-3 mx-4"><b>ECE</b></a>
+        <a href="/CHEM-DEPT" type="button" class="btn btn-outline-primary btn-sm mb-3 mx-4"><b>CHEMICAL</b></a>
+    </div>
+    {% endblock body %}
